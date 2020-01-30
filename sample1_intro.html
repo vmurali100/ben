@@ -4,7 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    
     <title>Document</title>
   </head>
-  <body></body>
+  <body ng-app ="myApp">
+    <!-- {{10+20}}
+    <input type="text" ng-model="sample">
+    {{sample}} -->
+
+    <div ng-controller="myController">
+      MyName : {{person.fname }} 
+<p>      MyName : {{person.lname }} 
+</p>
+      <p>  Training: {{training}}</p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script>
+      //Creating A Module
+    var myApp = angular.module('myApp',[])
+
+    myApp.controller('myController',function ($scope){
+      $scope.myName ="Ben";
+      $scope.training="AngularJS";
+
+      $scope.person = {
+        fname:"Murali",
+        lname:"Krishna"
+      }
+    })
+    </script>
+  </body>
 </html>

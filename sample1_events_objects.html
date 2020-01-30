@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body ng-app="app">
+    <div ng-controller="myController">
+        <button ng-click="showPerson()">Show Person</button>
+        <!-- <ul ng-show="showPersonInfo">
+            <li ng-repeat="key in person">{{key}}</li>
+        </ul> -->
+
+        <ul>
+            <li ng-repeat="key in person">{{key}}</li>
+        </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script>
+        var app = angular.module("app", [])
+        app.controller("myController", function ($scope) {
+            $scope.person = { }
+
+            $scope.showPerson = function () {
+                $scope.person = {
+                    "fname": "Connie",
+                    "lname": "Weatherly",
+                    "tel": "(539)642-4565",
+                    "address": "8249 Placerat St",
+                    "city": "Vacaville",
+                    "state": "IL",
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

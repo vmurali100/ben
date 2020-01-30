@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body ng-app="app">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item ">
+              <a class="nav-link" href="#!home">Home </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!pricing">Pricing</a>
+            </li>
+           
+          </ul>
+        </div>
+      </nav>
+
+      <div ng-view></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    
+    <script>
+    var app = angular.module("app",['ngRoute'])
+
+    app.config(function ($routeProvider){
+        $routeProvider
+        .when("/",{
+            // template:"<h1>Hello World ... Welcome to Routing Application"
+                templateUrl:'main.html'
+        })
+        .when("/home",{
+            // template:"<h2>Helo Welcome to Home <h1>"
+                templateUrl:'home.html',
+                controller:'homeController'
+
+        })
+        .when("/features",{
+            // template:"<h2>Helo Welcome to Features page <h1>"
+                templateUrl:'features.html',
+                controller:'featuresController'
+
+        })
+        .when("/pricing",{
+            // template:"<h2>Helo Welcome to Pricing Page <h1>"
+                templateUrl:'pricing.html',
+                controller:'pricingController'
+
+        })
+    })    
+    
+    </script>
+    <script src="homeController.js"></script>
+    <script src="featuresController.js"></script>
+    <script src="pricingController.js"></script
+
+</body>
+</html>

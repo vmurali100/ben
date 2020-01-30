@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        {{hello}}
+        <h1>Controller 1</h1>
+        <ul>
+            <li ng-repeat="user in users">{{user.fname}}</li>
+        </ul>
+    </div>
+
+<hr>
+    <div ng-controller="myContoller2">
+        <h2>Controller 2</h2>
+        <ul>
+            <li ng-repeat="user in users">{{user.city}}</li>
+        </ul>
+
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.js"></script>
+    <script src="sample5_services.js"></script>
+</body>
+</html>

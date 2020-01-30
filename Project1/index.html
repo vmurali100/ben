@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="layout.css">
+</head>
+<body ng-app="app">
+    <div class="wrapper row1" ng-controller="navController">
+       <myheader></myheader>
+      </div>
+      <div class="wrapper row2" ng-controller="contentController">
+        <div id="container" class="clear">
+            <mycontent></mycontent>
+        </div>
+        <!-- / content body -->
+      </div>
+      </div>
+      <div class="wrapper row3" ng-controller="footerController">
+        <div id="footer" class="clear">
+          <!-- Section One -->
+          <section class="one_quarter" ng-repeat="link in footerLinks">
+            <footerlinks helo="how Are you"></footerlinks>
+          </section>
+         
+          <!-- / Section -->
+        </div>
+      </div>
+
+      <div class="wrapper row4" ng-controller="copyrightController">
+        <footer id="copyright" class="clear">
+          <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
+          <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+        </footer>
+      </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

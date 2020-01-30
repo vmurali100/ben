@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body ng-app="app">
+    <div class="container" ng-controller="myController">
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" ng-model="currentUser.name">
+              </div>
+              <div class="form-group">
+                <label for="userName">User name</label>
+                <input type="text" class="form-control" ng-model="currentUser.username" >
+              </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control"  ng-model="currentUser.email" >
+            </div>
+            <button ng-click="addUser()" type="button">Add User</button>
+            <button ng-click="updateUser()">Update User</button>
+         
+            
+          </form>
+
+          <br>
+          <br>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">User name</th>
+                <th scope="col">Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users">
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                        <td><button class="btn btn-info" ng-click="editUser(user)">Edit</button></td>
+                        <td><button class="btn btn-danger" ng-click="deleteUser(user)">Delete</button></td>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="service.js"></script>
+</body>
+</html>

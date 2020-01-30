@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body ng-app="app">
+    <div class="container" ng-controller="myController">
+        <input type="text" ng-model="userSearch"> <select name="" id="" ng-model="noOfRecords" ng-change="getLatest()">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="25">25</option>
+        </select>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="user in users | filter : userSearch | limitTo : noOfRecords">
+                  <td>{{user.fname | uppercase}}</td>
+                  <td>{{user.lname | lowercase}}</td>
+                  <td>{{user.tel | formatPhone | number }}</td>
+                  <td>{{user.address}}</td>
+                  <td>{{user.city | city}}</td>
+                  <td>{{user.state}}</td>
+                  <td>{{user.zip}}</td>
+
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- <div class="row">
+            <div class="col-sm-6" ng-repeat ="user in users | filter : userSearch">
+                <user></user>
+            </div>
+        </div> -->
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script>
+        var app = angular.module("app",[])
+        app.controller("myController",function ($scope,userService){
+            $scope.noOfRecords= 5
+
+            $scope.getLatest = function (){
+                $scope.getLatestRecords()
+            }
+
+            $scope.getLatestRecords = function (){
+                userService.getData($scope.noOfRecords).then(function (resposne){
+                console.log(resposne)
+                $scope.users = resposne.data
+            })
+            }
+            $scope.getLatestRecords()
+            // $scope.users 
+        })
+
+        app.service('userService',function ($http){
+            return {
+                getData:function(nos){
+                    return $http.get("http://www.filltext.com/?rows="+nos+"&fname={firstName}&lname={lastName}&tel={phone|format}&address={streetAddress}&city={city}&state={usState|abbr}&zip={zip}&pretty=true")
+                }
+            }
+        })
+
+        app.filter('city',function (){
+            return function (city){
+                return city.slice(0,3)
+            }
+        })
+
+        app.filter("formatPhone",function (){
+            return function (phone){
+                var newArry = phone.split("")
+                var newNumber=[]
+                newArry.map(function (n){
+                    if(n != "(" && n !== ")" && n !== "-"){
+                        newNumber.push(n)
+                    }
+                })
+                return newNumber.join("")
+            }
+        })
+
+        app.directive("user",function (){
+            return{
+                templateUrl:"user-directive.html"
+            }
+        })
+    </script>
+</body>
+</html>

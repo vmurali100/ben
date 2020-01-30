@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myContriller">
+        <!-- <ul>
+            <li ng-repeat = "keys in person">{{keys}}</li>
+        </ul> -->
+
+        <div ng-repeat="obj in data">
+            <ul>
+                <li ng-repeat="val in obj">{{val}}</li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script>
+    var myApp = angular.module("myApp",[])
+    myApp.controller('myContriller',function ($scope){
+        $scope.person =  {
+        "fname": "Rahul",
+        "lname": "Buckham",
+        "tel": "(550)528-8908",
+        "address": "8869 Risus Dr",
+        "city": "Central Lake",
+        "state": "OH",
+        "zip": 74920
+    }
+
+    $scope.data = [
+    {
+        "fname": "Maurice",
+        "lname": "Roos",
+        "tel": "(987)223-6388",
+        "address": "5316 Donec Ct",
+        "city": "Circleville",
+        "state": "OR",
+        "zip": 53159
+    },
+    {
+        "fname": "Ghaffar",
+        "lname": "Frutos",
+        "tel": "(335)202-4497",
+        "address": "1392 Dolor Rd",
+        "city": "Marion",
+        "state": "HI",
+        "zip": 81344
+    },
+    {
+        "fname": "Arlene",
+        "lname": "Bessko",
+        "tel": "(125)305-1385",
+        "address": "9623 Sagittis Ln",
+        "city": "Littleton",
+        "state": "IL",
+        "zip": 86757
+    },
+    {
+        "fname": "Daydria",
+        "lname": "Lenze",
+        "tel": "(628)738-9504",
+        "address": "3501 Morbi Ct",
+        "city": "Bellevue",
+        "state": "MD",
+        "zip": 49067
+    },
+    {
+        "fname": "Alan",
+        "lname": "Wong",
+        "tel": "(572)927-1412",
+        "address": "6557 Velit Ct",
+        "city": "Douglasville",
+        "state": "ND",
+        "zip": 20220
+    },
+    {
+        "fname": "Jannae",
+        "lname": "Flanagan",
+        "tel": "(533)412-1051",
+        "address": "713 Tortor Rd",
+        "city": "Stamford",
+        "state": "HI",
+        "zip": 44453
+    },
+    {
+        "fname": "Cathy",
+        "lname": "Douglas",
+        "tel": "(920)871-3683",
+        "address": "3600 Curabitur St",
+        "city": "New Port Richey",
+        "state": "WI",
+        "zip": 45063
+    },
+    {
+        "fname": "Angelique",
+        "lname": "Kleb",
+        "tel": "(417)331-1986",
+        "address": "5987 Vitae St",
+        "city": "Zionsville",
+        "state": "VT",
+        "zip": 90053
+    },
+    {
+        "fname": "Joaquin",
+        "lname": "Nordmark",
+        "tel": "(990)296-4898",
+        "address": "2477 Lorem Ln",
+        "city": "Houston",
+        "state": "MS",
+        "zip": 28546
+    },
+    {
+        "fname": "Lauri",
+        "lname": "Rutt",
+        "tel": "(645)758-5491",
+        "address": "4371 Et Ave",
+        "city": "Waco",
+        "state": "NY",
+        "zip": 72281
+    }
+]
+
+    })
+    </script>
+</body>
+</html>
